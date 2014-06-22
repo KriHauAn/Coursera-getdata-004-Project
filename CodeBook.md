@@ -1,5 +1,30 @@
+Code Book for Getting and Cleaning Data Course Project
+==============
+The code in run_analysis.R processes the supplied "Samsung Data"number  source data.  
 
-|Feature|Descriptor|  
+The source data comes with its own data description.  
+
+It is presumed that both the code and the data is in R's current working directory.  
+
+The code requires the libraries "plyr" and "reshape2".
+
+The following is done:
+* Only the features containing mean values or standard deviations are kept (cf. table below).
+* The activity-identifying numbers (in `Y_test.txt` & `Y_train.txt`) are mapped to the supplied descriptive labels (in `activity_labels.txt`).
+* A new column "Subject Group" is added identifying whether the subject is in the "Train" or in the "Test" group.
+* The two data sets are added into one tidy data set with descriptive column names (cf. table below). This data set is in the "wide form", which is natural when each observation contains one instance of each variable.
+* This data set is output in text/table format to a file named `TidyDataWide.txt`.
+* Average values of each variable are computed for each combination of "Subject Number" and "Activity". This summarised data set is in the "long form".
+* This
+
+
+
+|Source Data Dimension|Descriptive Name in output|  
+|-------|---------|  
+|Activity Label|Activity|  
+|Subject|Subject Number|  
+
+|Source Data Feature Label |Descriptive Name in output|  
 |-------|---------|  
 |tBodyAcc-mean()-X	|Mean of body acceleration X-coordinate|  
 |tBodyAcc-mean()-Y	|Mean of body acceleration Y-coordinate|  

@@ -1,6 +1,6 @@
 Code Book for Getting and Cleaning Data Course Project
 ==============
-The code in run_analysis.R processes the supplied "Samsung Data"number  source data.  
+The code in `run_analysis.R` processes the supplied "Samsung Data" source data producing two tidy data sets with descriptive variable names.  
 
 The source data comes with its own data description.  
 
@@ -14,8 +14,8 @@ The following is done:
 * A new column "Subject Group" is added identifying whether the subject is in the "Train" or in the "Test" group.
 * The two data sets are added into one tidy data set with descriptive column names (cf. table below). This data set is in the "wide form", which is natural when each observation contains one instance of each variable.
 * This data set is output in text/table format to a file named `TidyDataWide.txt`.
-* Average values of each variable are computed for each combination of "Subject Number" and "Activity". This summarised data set is in the "long form".
-* This
+* Average values of each variable are computed for each combination of "Subject Number" and "Activity". This summarised data set is in the "long form" (where each value has its own row).
+* This data set is output in text/table format to a file named `TidyDataSummaryLong.txt`.
 
 
 

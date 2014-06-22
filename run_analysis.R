@@ -151,15 +151,11 @@ TidyDataWide <- data.frame(
   "Std.dev..of.gyrometer.jerk.magnitude.in.frequency.domain" = CombinedData[,"fBodyBodyGyroJerkMag-std()"]
   )
 
-# Now we save the tidy data to a file called: "TidyData.Rda"
-# We use R data object file format to save space.
-
-save(TidyDataWide,file="TidyDataWide.Rda")
+# Now we save the tidy data to a file called: "TidyDataWide.txt"
 write.table(TidyDataWide,file="TidyDataWide.txt")
 
-# Finally, the summarized data.
-
-library(plyr)
+# Finally, to easily produce the summarized data we convert the tidy data set
+# from "wide form" to "long form" using the melt function from the reshape2 library.
 
 library(reshape2)
 
@@ -231,7 +227,10 @@ TidyDataLong <- melt(TidyDataWide, id = c("Subject.Number", "Subject.Group", "Ac
                                     "Mean.of.gyrometer.jerk.magnitude.in.frequency.domain",
                                     "Std.dev..of.gyrometer.jerk.magnitude.in.frequency.domain"))
 
+# Now with ddply from the plyr library the summary data set is easily produced.
+library(plyr)
+
 TidyDataSummaryLong <- ddply(TidyDataLong,c("Subject.Number", "Activity", "variable"), summarise, AverageValue = mean(value))
 
-save(TidyDataSummaryLong,file="TidyDataSummaryLong.Rda")
+# Similarly, we save this data set:
 write.table(TidyDataSummaryLong,file="TidyDataSummaryLong.txt")
